@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 
 import CharList from "../charList/CharList";
 import CharInfo from "../charInfo/CharInfo";
-import ErrorMessage from "../errorMessage/errorMessage";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import decoration from '../../resources/img/vision.png';
 import CharForm from "../charForm/charForm";

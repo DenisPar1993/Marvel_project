@@ -1,13 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AppHeader from "../appHeader/AppHeader";
-import RandomChar from "../randomChar/RandomChar";
-import CharList from "../charList/CharList";
-import ComicsList from "../comicsList/ComicsList";
-import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
-import decoration from '../../resources/img/vision.png';
-import ErrorMessage from "../errorMessage/errorMessage";
-import AppBanner from "../appBanner/AppBanner"
+
 
 import Spinner from "../spinner/Spinner";
 

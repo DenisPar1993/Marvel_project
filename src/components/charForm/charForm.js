@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 import './charForm.scss';
 import * as Yup from 'yup';
 import useMarvelService from "../services/MarvelService";
-import ErrorMessage from "../errorMessage/errorMessage";
+
 
 const CharForm =()=>{
     const [char, setChar]=useState(null);
-    const {loading,error,getNameChar,clearError}=useMarvelService();
+    const {getNameChar,clearError,process, setProcess}=useMarvelService();
     const onUpdateChar = (name) => {
             clearError();
             getNameChar(name)
             .then(onCharListLoaded)
+            .then(() => setProcess('confirmed'))
     }
     const onCharListLoaded =(char)=>{
       setChar(char);
     }
 
-    const errorMessage = error ? <div className="char__search-critical-error"><ErrorMessage /></div> : null;
     const result= !char?null:char.length>0?
     <div className="char__search-wrapper">
                         <div className="char__search-success">There is! Visit {char[0].name} page?</div>
@@ -54,7 +54,7 @@ const CharForm =()=>{
                 <button 
                             type='submit' 
                             className="button button__main"
-                            disabled={loading}>
+                            disabled={process==='loading'}>
                             <div className="inner">find</div>
                 </button>
                 
@@ -64,7 +64,6 @@ const CharForm =()=>{
             </Form>
             </Formik>
             {result}
-            {errorMessage}
         </div>
     )
 }
